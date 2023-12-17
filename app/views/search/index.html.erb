@@ -1,0 +1,24 @@
+<h1 class="text-center"><%= pluralize(@post.count, "Your Results") %></h1>
+<%= render "search/form" %>
+
+<div class="container">
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th><%= sort_link(@query, :title, "Title", default_order: :asc) %></th>
+      <th><%= sort_link(@query, :content, "Post Content", default_order: :asc) %> </th>
+      <th><%= sort_link(@query, :name, "Users", default_order: :asc) %> </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= @post.each do |post| %>
+    <tr>
+    <td> <%= link_to post.title, post %></td>
+     <td> <%=  post.content.truncate_words(25) %></td>
+    <td> <%= link_to post.name, post %></td>
+    </tr>
+    <% end %>
+    </tbody>
+    </table>
+  </div>

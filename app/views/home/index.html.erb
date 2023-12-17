@@ -1,0 +1,61 @@
+<!--The Main route of the rails server-->
+
+<section class="highlight-clean">
+  <div class="container">
+    <div class="intro">
+      <h1 class="text-center">Homepage</h1>
+    </div>
+    <div class="button-home">
+      <!-- If and else statement to sign the user into the blog-->
+      <% if current_user %>
+       <p> Hello <%= current_user.email %>!</p>
+       <p> You are a [<%= current_user.role %>]</p>
+
+      <p>
+        You have successfully signed in
+        You can now interact now check the feed<br>
+        <%= link_to '<button class="btn btn-primary" role="button" style="background: #055ada;">My Blog</button>'.html_safe, posts_path %>
+      </p>
+      <%= link_to '<button class="btn btn-primary" role="button" style="background: #d49a6a;">Sign Out</button>'.html_safe, destroy_user_session_path, 'data-turbo-method': :delete %>
+
+      <% else %>
+       <p> You are not signed in </p>
+       <p>Create an account now</p>
+       <%= link_to '<button class="btn btn-primary" role="button" style="background: #055ada;">Register</button>'.html_safe, new_user_registration_path %>
+       <br>
+       <p>Do you already have an account? Click here to sign in</p>
+       <%= link_to '<button class="btn btn-primary" role="button" style="background: #d49a6a;">Sign In</button>'.html_safe, new_user_session_path %>
+       <% end %>
+    </div>
+  </div>
+</section>
+<section class="page-section clearfix">
+  <div class="container">
+    <div class="intro">
+        <%= image_tag 'White-apple.jpg', class: "home-image", style: 'max-width: 60rem;' %>
+        <div class="text-center intro-text p-5 rounded bg-faded">
+           <div class="text-center">
+             <h2 class="section-heading mb-4">
+               <span class="section-heading-lower">Create a Post</span>
+             </h2>
+             <p class="mb-3">Create your first Post now </p>
+           </div>
+           <div class="mx-auto intro-button">
+             <%= link_to '<button class="btn btn-primary" role="button" style="background: #055ada;">My Blog</button>'.html_safe, posts_path %>
+           </div>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="page-section cta">
+<div class="social">
+  <div class="socialText">
+   <h2> Find us on twitter</h2>
+  </div>
+  <div class="socailIcon">
+<a class="twitter-timeline" data-width="500" data-height="500" data-theme="light" href="https://twitter.com/luxurytravel?ref_src=twsrc%5Etfw">Tweets by luxurytravel</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="https://twitter.com/luxurytravel?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-screen-name="false" data-show-count="false">Follow @luxurytravel</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+ </div>
+ </div>
+</section>

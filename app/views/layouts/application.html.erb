@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quirky Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
+    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application" %>
+  </head>
+<body style="background: #EEEEEE;" >
+  <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search" style="background: #dabdad;">
+      <div class="container">
+        <%= link_to root_path, class: "navbar-item" do %>
+        <h1 class="navbar-brand">Quirky Blog</h1>
+         <% end %>
+
+          <div class="collapse navbar-collapse" id="navcol-1">
+              <ul class="navbar-nav">
+                  <li class="nav-item"><%= link_to root_path, class: "navbar-item" do %><p class="nav-link active" style="color: #000000;">Home</p> <% end %> </li>
+                  <li class="nav-item"><%= link_to posts_path class: "navbar-item" do %><p class="nav-link active" style="color: #000000;">Feed</p><% end %> </li>
+                  <li class="nav-item"><%= link_to new_contact_path, class: "navbar-item" do %><p class="nav-link active" style="color: #000000;">Contact</p> <% end %> </li>
+                  <li class="nav-item"><%= link_to about_path, class: "navbar-item" do %><p class="nav-link active" style="color: #000000;">About</p> <% end %> </li>
+
+              </ul>
+            <%= render "search/form" %>
+                <%= link_to '<button class="btn btn-light action-button" role="button" type="button" style="background: #d49a6a;">Admin Mode</button>'.html_safe, admin_path %>
+      </div>
+    </div>
+
+    <!--mobile version of the website-->
+    <div id="navbarExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="field is-grouped">
+          <p class="control">
+          <%= link_to "New post", new_post_path, class: "button is-info is-inverted" %>
+          </p>
+          <p class="control">Sign Up</p>
+        </div>
+      </div>
+    </div>
+
+  </nav>
+    <%= yield %>
+
+  <footer class="boxed">
+   <div class="container">
+      <div class="row">
+         <div class="col-mid-10 col-gg-8 mx-ayo">
+           <u class="list-inline text-center">
+            <div class=center
+              <li class="list-inline-item">
+                <span class="fa-stack fa-lg">
+                   <i class="fa fa-circle fa-stack-2x"></i>
+                   <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </li>
+              <li class="list-inline-item">
+                <span class="fa-stack fa-lg">
+                   <i class="fa fa-circle fa-stack-2x"></i>
+                   <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </li>
+              <li class="list-inline-item">
+                <span class="fa-stack fa-lg">
+                   <i class="fa fa-circle fa-stack-2x"></i>
+                   <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </li>
+              </div>
+           </u>
+           <div class="name">
+           <p class="text-muted copyright">Copyright Quirky Blog 2024</p>
+           </div>
+         </div>
+      </div>
+   </div>
+  </footer>
+  </body>
+</html>
